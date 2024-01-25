@@ -1,0 +1,140 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.loginPage
+{
+    display: flex;
+    column-gap: 110px;
+}
+
+.rightSide img
+{
+  height: 786px;
+  width: 900px;
+}
+
+.loginContainer
+{
+    height: 786px;
+    width: 900px;
+    /* border-style: solid;
+    border-color: aquamarine; */
+}
+
+.pupLogo img{
+  height: 150px;
+  width: 150px;
+  padding: 50px;
+  padding-left: 145px;
+}
+
+.leftSide
+{
+    padding: 50px;
+}
+
+.loginTitle 
+{
+    text-align: center;
+}
+
+.loginTitle h2{
+    letter-spacing: 3px;
+    padding-top: 10px;
+    color: #810403;
+    font-size: 30px;
+}
+
+.titleDesc p
+{
+    font-size: medium;
+    letter-spacing: 1px;
+    padding-top: 10px;
+    text-align: center;
+    color: #545454;
+    
+}
+
+.fieldsContainer
+{
+  padding-top: 10px;
+  padding-left: 35px;
+  /* border-style: solid;
+  border-color: aquamarine; */
+  justify-content: center;
+  height: 250px;
+}
+
+.fieldsContainer h4
+{
+    padding: 20px;
+    text-align: center;
+    color: #810403;
+}
+
+.inputField {
+    position: relative;
+    margin: 10px 0;
+}
+
+.inputField label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #A6A6A6;
+    padding: 0 5px;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.inputField input{
+    width: 320px;
+    height: 40px;
+    font-size: 16px;
+    color: #A6A6A6;
+    padding: 0 0px;
+    background: transparent;
+    border: 1.2px solid #D9D9D9;
+    outline: none;
+    border-radius: 10px;
+}
+
+.inputField input:focus~label,
+.inputField input:valid~label{
+    top: 0;
+    color: black;
+    font-size: 12px;
+    background: white;
+}
+    
+
+
+.loginButtons .btn
+{
+    background-color: #0D7CFE;
+    border: 1px solid white;
+    color: rgb(255, 255, 255);
+    padding: 13px 32px;
+    margin-top: 10px;
+    text-align: center;
+    font-size: large;
+    cursor: pointer;
+    width: 320px;
+    display: block;
+    border-radius: 10px;
+}
+
+.loginFooter p
+{
+    padding-top: 30px;
+    padding-right: 10;
+    text-align: center;
+    /* border-style: solid;
+    border-color: aquamarine; */
+}
