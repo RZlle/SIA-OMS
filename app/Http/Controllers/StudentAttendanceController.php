@@ -9,7 +9,7 @@ use Carbon\Carbon;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Storage;
 
-class AttendanceController extends Controller
+class StudentAttendanceController extends Controller
 {
     /**
      * Store a newly recorded attendance in the database.
@@ -17,18 +17,18 @@ class AttendanceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function AttendInfoRetrieve()
+    public function AttendShow()
     {
         $attendance = Attendance::all();
 
         if ($attendance->count() > 0) {
-            return view('program-adviser.attendance-program', compact('attendance'));
+            return view('student.attendance', compact('attendance'));
         } else {
-            return view('program-adviser.attendance-program', compact('attendance'))->with('status', 404)->with('message', 'No Records Found');
+            return view('student.attendance', compact('attendance'))->with('status', 404)->with('message', 'No Records Found');
         }
     }
     
-    public function AttendanceInput(Request $request)
+    public function AttendInput(Request $request)
     {
         // $user = Auth::user();
         $request->merge(['attendDate' => Carbon::now()->format('Y-m-d')]);

@@ -7,6 +7,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\RequirementsController;
 use App\Http\Controllers\Api\StudentController;
+use App\Http\Controllers\StudentAttendanceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -62,7 +63,6 @@ Route::get('program-adviser/requirements/add', function () {
 Route::post('program-adviser/requirements/add', [RequirementsController::class, 'RequirementsInfoInput'])->name('reqInput');
 
 
-Route::get('program-adviser/attendance/program', [AttendanceController::class, 'AttendInfoRetrieve'])->name('programAttend');
 
 Route::get('program-adviser/student/program', [StudentController::class, 'studentInfoRetrieve'])->name('programStud');
 // -----------------------------------------------------------------------------------------------------------------------
@@ -83,9 +83,6 @@ Route::get('student/dashboard', function () {
     return view('student.dashboard');
 })->name('studentDashboard');
 
-Route::get('student/attendance', function () {
-    return view('student.attendance');
-})->name('studentAttendance');
 
 Route::get('student/daily-task', function () {
     return view('student.dailytask');
@@ -101,6 +98,8 @@ Route::get('student/ojt-requirements', function () {
     return view('student.ojt-requirements');
 })->name('ojtRequirements');
 
+
+
  /*-------------------------------------------------------------------------------------------------------------------*/
 Route::resource('student/daily-task', TaskController::class); //for file
 
@@ -114,8 +113,9 @@ Route::post('student/daily-task', [TaskController::class, 'TaskInfoInput'])->nam
 
 Route::delete('student/daily-task/tasks/{id}', [TaskController::class, 'TaskInfoSoftDelete'])->name('tasks.soft-delete');
 
-Route::get('student/attendance', [AttendanceController::class, 'AttendInfoRetrieve'])->name('attendShow');
-Route::post('student/attendance', [AttendanceController::class, 'AttendanceInput'])->name('attendInput');
+Route::get('student/attendance', [StudentAttendanceController::class, 'AttendShow'])->name('attendShow');
+Route::post('student/attendance', [StudentAttendanceController::class, 'AttendInput'])->name('attendInput');
+
         // Route::get('student/attendance', [AttendanceController::class, 'index'])->name('attendance.index');
 //-------------------------------------------------------------------------------------------------------------------------------
 

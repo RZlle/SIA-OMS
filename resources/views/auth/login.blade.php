@@ -27,7 +27,6 @@
                     Adviser</a>
                 <a href="{{ route('ojt-coordinator-login') }}" type="button" class="btn btn-primary no-style">OJT
                     Coordinator</a>
-                <a type="button" class="btn btn-primary no-style">Company</a>
             </div>
             <div class="footer">
                 <p id="footer-text">By using this service, you understood and agree to the<br> PUP Online Services <a

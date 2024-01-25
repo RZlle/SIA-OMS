@@ -3,11 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
-use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\Api\CourseController;
 use App\Http\Controllers\Api\FacultyController;
 use App\Http\Controllers\Api\StudentController;
-use App\Http\Controllers\TaskController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
