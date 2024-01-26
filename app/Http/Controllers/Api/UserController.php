@@ -12,6 +12,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 use App\Models\Account;
 
+
 class UserController extends Controller
 {
     public function __construct(
@@ -44,7 +45,7 @@ class UserController extends Controller
 
             'UserName' => 'required|unique:account',
             'Password' => 'required',
-            'Usertype' => 'required',
+            'type' => 'required',
 
         ]);
 
@@ -69,7 +70,7 @@ class UserController extends Controller
 
             $account->UserName = $request->UserName;
             $account->Password = Hash::make($request->Password);
-            $account->Usertype = $request->Usertype;
+            $account->type = $request->type;
             // $account->DataCreated = $currentDateTime;
 
             $account->save();
@@ -110,7 +111,7 @@ class UserController extends Controller
 
         return response()->json([
             'status' => true,
-            'Usertype' => $user->Usertype
+            'type' => $user->Usertype
         ], 200);
 
     }
@@ -131,4 +132,5 @@ class UserController extends Controller
     }
 
 }
+
 }

@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Faculty;
+use App\Models\Student;
+
 return [
 
     /*
@@ -38,8 +41,12 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'students',
         ],
+        'faculty' => [
+            'driver' => 'session',
+            'provider' => 'faculties'
+        ]
     ],
 
     /*
@@ -60,15 +67,14 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'students' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => Student::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'faculties' => [
+            'driver' => 'eloquent',
+            'model' => Faculty::class,
+        ],
     ],
 
     /*

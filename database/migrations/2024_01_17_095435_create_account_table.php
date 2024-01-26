@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('accountId');
             $table->string("UserName");
             $table->string("Password");
-            $table->string("Usertype");
+            $table->string("type");
             $table->timestamps();
         });
     }

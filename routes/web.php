@@ -1,13 +1,14 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TaskController;
-use App\Http\Controllers\Api\UserController;
-use App\Http\Controllers\CompanyController;
-use App\Http\Controllers\AttendanceController;
-use App\Http\Controllers\RequirementsController;
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\StudentController;
+use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\RequirementsController;
 use App\Http\Controllers\StudentAttendanceController;
+use App\Http\Controllers\TaskController;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,9 +20,7 @@ use App\Http\Controllers\StudentAttendanceController;
 |
 */
 // -----------------------------------------------------------------------------------------------------------------------
-Route::get('/', function () {
-    return view('auth.login');
-});
+Route::get('/', [AuthController::class, 'login']);
 
 Route::get('/forgot-password', function () {
     return view('auth.forgot-password');
@@ -122,6 +121,18 @@ Route::post('student/attendance', [StudentAttendanceController::class, 'AttendIn
 Route::post('company/add', [CompanyController::class, 'createCompany'])->name('createCompany');
 // ------------------------------------------------------------------------------------------------------------------------------------
 
+
+Route::middleware(['auth', 'user-access::student'])->group(function() {
+    Route::get('student/dashboard', [\App\Http\Controllers\Api\HomeController::class, 'index'])->name('homeStudent');
+});
+
+Route::middleware(['auth', 'user-access::program-adviser'])->group(function() {
+    Route::get('program-adviser/dashboard', [\App\Http\Controllers\Api\HomeController::class, 'index'])->name('homeAdviser');
+});
+
+Route::middleware(['auth', 'user-access::ojt-coordinator'])->group(function() {
+    Route::get('ojt-coordinator/dashboard', [\App\Http\Controllers\Api\HomeController::class, 'index'])->name('homeCoordinator');
+});
 
 
 

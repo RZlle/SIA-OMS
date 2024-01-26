@@ -97,12 +97,12 @@
             $('#student-sign-in').click(function() {
 
                 if ($('#login-form').valid()) {
-                    axios.post('http://sms-oms.test/api/auth/login', {
+                    axios.get('http://127.0.0.1:8000/student/login', {
                             'UserName': $('#student-username').val(),
                             'Password': $('#student-password').val(),
                         })
                         .then(response => {
-                            if (response.data.status && response.data.Usertype == "STUD") {
+                            if (response.data.status && response.data.type == "student") {
 
                                 Swal.fire({
                                     title: "Good job!",
