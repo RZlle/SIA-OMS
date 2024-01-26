@@ -1,5 +1,9 @@
 <?php
 
+use App\Models\Account;
+use App\Models\Faculty;
+use App\Models\Student;
+
 return [
 
     /*
@@ -62,7 +66,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => Account::class,
         ],
 
         // 'users' => [

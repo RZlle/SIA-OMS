@@ -13,47 +13,6 @@
 
 @section('main-content')
 
-
-<div class="row">
-    <div class="col-md-12">
-        <div class="panel">
-            <div class="panel-body">
-                <!-- Filter Dropdowns -->
-                <div class="row">
-                    <div class="col-md-4">
-                        <label for="student-filter">Filter by Student:</label>
-                        <select id="student-filter" class="form-control">
-                            <option value="">All Students</option>
-                            <!-- Add options dynamically based on your students data -->
-                            
-                        </select>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="course-filter">Filter by Course:</label>
-                        <select id="course-filter" class="form-control">
-                            <option value="">All Courses</option>
-                            <!-- Add options dynamically based on your courses data -->
-                            
-                        </select>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="month-filter">Filter by Month:</label>
-                        <select id="month-filter" class="form-control">
-                            <option value="">All Months</option>
-                            <!-- Add options for months dynamically if needed -->
-                            <option value="1">January</option>
-                            <option value="2">February</option>
-                            <!-- Add other months as needed -->
-                        </select>
-                    </div>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-
-
     <div class="row">
         <div class="col-lg-12">
             <div class="panel">

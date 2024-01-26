@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('requirements', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('studentId')->nullable();
-            $table->foreign('studentId')->references('studentId')->on('student')->onDelete('cascade');
-            $table->unsignedBigInteger('facultyId')->nullable();
-            $table->foreign('facultyId')->references('facultyId')->on('faculty')->onDelete('cascade');
+            $table->unsignedBigInteger('studentID')->nullable();
+            $table->foreign('studentID')->references('studentID')->on('student')->onDelete('cascade');
+            $table->unsignedBigInteger('facultyID')->nullable();
+            $table->foreign('facultyID')->references('facultyID')->on('faculty')->onDelete('cascade');
             $table->date('dateSubmitted');
             $table->string('reqFile');
             $table->string('reqName');

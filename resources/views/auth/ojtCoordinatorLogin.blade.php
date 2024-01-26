@@ -27,11 +27,14 @@
                     Branch</span></p>
             <div class="btn-container-student">
                 <p style="margin-bottom: 1em; font-size: 12pt;">Login as <strong>OJT Coordinator</strong></p>
-                <input class="form-control" type="text" name="username" id="ojt-coor-username"
-                    placeholder="Webmail" autocomplete="on">
-                <input class="form-control" type="password" name="password" id="ojt-coor-password" placeholder="Password"
-                    autocomplete="on">
-                <button id="ojt-coor-sign-in" class="btn btn-primary">Sign In</button>
+                <form id="login-form" name="login-form" style="width: 100%;" action="{{ route('coordinatorPostLogin') }}" method="POST">
+                    @csrf
+                        <input class="form-control" type="text" name="email" id="ojt-coor-username"
+                            placeholder="Email" autocomplete="on">
+                        <input class="form-control" type="password" name="password" id="ojt-coor-password" placeholder="Password"
+                            autocomplete="on">
+                        <button type="submit" id="ojt-coor-sign-in" class="btn btn-primary">Sign In</button>
+                </form>
                 <div id="back-arrow">
                     <a id="back-btn"><i class="fa fa-arrow-left fa-lg"></i> <span><strong>Back</strong></span></a>
                 </div>

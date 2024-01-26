@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AccountController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
@@ -26,7 +27,12 @@ Route::post('/auth/register', [UserController::class, 'createUser']);
 Route::post('/auth/login', [UserController::class, 'loginUser']);
 // Route::post('/add/company', [CompanyController::class, 'createCompany']);
 
-
+// Accounts
+Route::get('accounts', [AccountController::class, 'accountInfoRetrieve']);
+Route::post('accounts', [AccountController::class, 'accountInfoInput']);
+Route::get('accounts/{id}', [AccountController::class, 'accountInfoShow']);
+Route::get('accounts/{id}/edit', [AccountController::class, 'accountInfoEdit']);
+Route::put('accounts/{id}/edit', [AccountController::class, 'accountInfoUpdate']);
 // Students
 Route::get('students', [StudentController::class, 'studentInfoRetrieve']);
 Route::post('students', [StudentController::class, 'studentInfoInput']);

@@ -45,13 +45,14 @@
                     Branch</span></p>
             <div class="btn-container-student">
                 <p style="margin-bottom: 1em; font-size: 12pt;">Login as <strong>Student</strong></p>
-                <form id="login-form" name="login-form" style="width: 100%;" action="">
-                    <input class="form-control" type="text" name="username" id="student-username"
-                        placeholder="Student Number" autocomplete="on">
-                    <input class="form-control" type="password" name="password" id="student-password"
-                        placeholder="Password" autocomplete="on">
+                <form id="login-form" name="login-form" style="width: 100%;" action="{{ route('studentPostLogin') }}" method="POST">
+                    @csrf
+                        <input class="form-control" type="text" name="email" id="student-email"
+                            placeholder="Email" autocomplete="on">
+                        <input class="form-control" type="password" name="password" id="student-password"
+                            placeholder="Password" autocomplete="on">
+                        <button type="submit" id="student-sign-in" class="btn btn-primary">Sign In</button>
                 </form>
-                <button id="student-sign-in" class="btn btn-primary">Sign In</button>
                 <span id="error"></span>
                 <div id="back-arrow">
                     <a id="back-btn"><i class="fa fa-arrow-left fa-lg"></i> <span><strong>Back</strong></span></a>
@@ -76,7 +77,7 @@
 
             $('#login-form').validate({
                 rules: {
-                    username: {
+                    email: {
                         required: true
                     },
                     password: {
@@ -84,7 +85,7 @@
                     }
                 },
                 messages: {
-                    username: {
+                    email: {
                         required: "Student number is required"
                     },
                     password: {
@@ -97,8 +98,8 @@
             $('#student-sign-in').click(function() {
 
                 if ($('#login-form').valid()) {
-                    axios.post('http://sms-oms.test/api/auth/login', {
-                            'UserName': $('#student-username').val(),
+                    axios.post('http://127.0.0.1:8000/student/login', {
+                            'UserName': $('#student-email').val(),
                             'Password': $('#student-password').val(),
                         })
                         .then(response => {

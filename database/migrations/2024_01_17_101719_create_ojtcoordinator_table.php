@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ojtcoordinator', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('accountId')->nullable();
-            $table->foreign('accountId')->references('accountId')->on('account')->onDelete('cascade');
+            $table->id('coordinatorID');
+            $table->unsignedBigInteger('accountID')->nullable();
+            $table->foreign('accountID')->references('accountID')->on('account')->onDelete('cascade');
             $table->string('lastName');
             $table->string('firstName');
             $table->string('middleName')->nullable();

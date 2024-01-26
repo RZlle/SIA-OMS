@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('company', function (Blueprint $table) {
-            $table->id('companyId');
+            $table->id('companyID');
             $table->string('companyName');
             $table->string('address');
             $table->string('moaFile')->nullable();
